@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -146,7 +147,7 @@ public class Home extends AppCompatActivity {
 
                             JSONObject api = response.getJSONObject("api");
                             JSONArray jsonArray = api.getJSONArray("fixtures");
-                           // Toast.makeText(Standings.this, ""+jsonArray.length(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Home.this, ""+jsonArray.length(), Toast.LENGTH_SHORT).show();
 
                             for(int i = 0;i< jsonArray.length();i++)
                             {
