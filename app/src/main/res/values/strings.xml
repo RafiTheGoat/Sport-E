@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Sport-E</string>
+
+    <string-array name="sports">
+        <item>Football</item>
+
+    </string-array>
+
+    <string-array name="Teams">
+        <item>Real Madrid</item>
+        <item>FC Barcelona</item>
+        <item>Manchester United</item>
+        <item>Juventus</item>
+        <item>Chelsea</item>
+        <item>Liverpool</item>
+        <item>PSG</item>
+        <item>FC Bayern Munich</item>
+        <item>Arsenal</item>
+        <item>Manchester City</item>
+    </string-array>
+</resources>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "651948802828",
+    "project_id": "sport-e-b4f72",
+    "storage_bucket": "sport-e-b4f72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651948802828:android:cc10601c7fa79cfa763f29",
+        "android_client_info": {
+          "package_name": "com.example.sport_e"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651948802828-6j0vd5rvu5d3v3vnjh6chbcomltvkqgq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sport_e",
+            "certificate_hash": "e6077b6e71358032682bec114c77fc04621faff5"
+          }
+        },
+        {
+          "client_id": "651948802828-9q6pf6grebfp770qd3v355qeq2t5ukjd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaG1VgQX1dxvh3b2Fwb08lTezywhnGPfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651948802828-9q6pf6grebfp770qd3v355qeq2t5ukjd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
