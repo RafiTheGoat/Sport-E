@@ -39,7 +39,9 @@ public class Standings extends AppCompatActivity {
     private FirebaseUser fUser;
     private DatabaseReference reference;
     private String userID;
-    private String team;
+    String teamna;
+    int points;
+    String url;
 
 
     @Override
@@ -53,16 +55,31 @@ public class Standings extends AppCompatActivity {
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = fUser.getUid();
+
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
+
                 if(userProfile != null){
-                     team = userProfile.team;
-
-
+                      teamna = userProfile.team;
 
                 }
+             //works here Toast.makeText(Standings.this, ""+teamna, Toast.LENGTH_SHORT).show();
+
+                if(teamna.equals("Arsenal") || teamna.equals("Manchester United") || teamna.equals("Chelsea") || teamna.equals("Liverpool") || teamna.equals(("Manchester City"))){
+                    url ="https://api-football-v1.p.rapidapi.com/v2/leagueTable/2790";
+                }
+                else if(teamna.equals("Juventus")){
+                    url ="https://api-football-v1.p.rapidapi.com/v2/leagueTable/2857";
+                }
+                else if (teamna.equals("Real Madrid") || teamna.equals("FC Barcelona")){
+                    url ="https://api-football-v1.p.rapidapi.com/v2/leagueTable/2833";
+                }
+             //  also here Toast.makeText(Standings.this, ""+url, Toast.LENGTH_SHORT).show();
+                jsonParse();
+
             }
 
             @Override
@@ -71,8 +88,8 @@ public class Standings extends AppCompatActivity {
 
             }
         });
-        Toast.makeText(this, ""+team, Toast.LENGTH_SHORT).show();
-        jsonParse();
+
+
 
 
 
@@ -80,8 +97,10 @@ public class Standings extends AppCompatActivity {
 
 
     }
+
     private  void jsonParse(){
-        String URL = "https://api-football-v1.p.rapidapi.com/v2/leagueTable/524";
+         String URL =url;//= "https://api-football-v1.p.rapidapi.com/v2/leagueTable/524";
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -90,7 +109,7 @@ public class Standings extends AppCompatActivity {
 
                             JSONObject api = response.getJSONObject("api");
                             JSONArray jsonArray = api.getJSONArray("standings");
-                            Toast.makeText(Standings.this, ""+jsonArray.length(), Toast.LENGTH_SHORT).show();
+                       //     Toast.makeText(Standings.this, ""+jsonArray.length(), Toast.LENGTH_SHORT).show();
 
                             for(int i = 0;i< jsonArray.length();i++)
                             {
@@ -99,7 +118,7 @@ public class Standings extends AppCompatActivity {
                                     JSONObject standings = jsonArray1.getJSONObject(k);
                                     int id = standings.getInt("rank");
                                     String Tname = standings.getString("teamName");
-                                    int points = standings.getInt("points");
+                                    points = standings.getInt("points");
                                     mtext.append(Tname + "," + String.valueOf(id) + "," + String.valueOf(points) + "\n\n");
 
 
@@ -107,7 +126,11 @@ public class Standings extends AppCompatActivity {
                                 }
 
 
+//                            This actually makes no difference because this itself is an async task. Youll have to continue to code from here onwards.
+  //                          But i Hope you got my point. Suppose you want to use points in another function you call from here suppose
 
+
+                                  // abc();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -131,4 +154,7 @@ public class Standings extends AppCompatActivity {
         };
         mQueue.add(request);
     }
+
+    //just saying if the user has only one team as favourites you dont even need to call this function multiple times. You just need to call it once so you can code all you want inside that jsonparse function only and display everything.team oh yes goy it
+
 }

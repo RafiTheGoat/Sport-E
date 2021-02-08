@@ -1,5 +1,6 @@
 package com.example.sport_e;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,6 +18,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,10 +38,16 @@ public class Home extends AppCompatActivity {
     private ImageView fans;
     private ImageView brigade;
     private ImageView predict;
-    private TextView profile,ht1n,at1n,ht1s,at1s;
+    private TextView profile,ht1n,at1n,lghn,lgan,lghs,lgas;
     private  TextView ven,venN,date,date_;
     private Button stand,show,hide;
     private RequestQueue mQueue;
+    private FirebaseUser fUser;
+    private DatabaseReference reference;
+    private String userID;
+    String teamna;
+    int points;
+    String url;
 
 
     @Override
@@ -48,9 +62,13 @@ public class Home extends AppCompatActivity {
             show = findViewById(R.id.home_show);
             at1n = findViewById(R.id.team2_away1);
 
-            ht1s = findViewById(R.id.team1_score1);
 
-            at1s = findViewById(R.id.team2_score1);
+            lghn = findViewById(R.id.lghm);
+            lgan = findViewById(R.id.lgma);
+            lghs = findViewById(R.id.lgmhs);
+            lgas = findViewById(R.id.lgmas);
+
+
             ven = findViewById(R.id.venue);
             venN = findViewById(R.id.ven_name);
             date = findViewById(R.id.date);
@@ -136,9 +154,58 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        mQueue = Volley.newRequestQueue(this);
+
+        fUser = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+        userID = fUser.getUid();
+
+
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile = snapshot.getValue(User.class);
+
+                if(userProfile != null){
+                    teamna = userProfile.team;
+
+                }
+                //works here Toast.makeText(Standings.this, ""+teamna, Toast.LENGTH_SHORT).show();
+
+                if(teamna.equals("Arsenal")){
+                    url ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/next/1?timezone=Europe%2FLondon";
+                }
+                else if(teamna.equals("Juventus")){
+                    url ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/496/next/1?timezone=Europe%2FLondon";//496
+                }
+               else if (teamna.equals("Real Madrid")){
+                    url ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/541/next/1?timezone=Europe%2FLondon"; // 541
+                }
+
+
+                //  also here Toast.makeText(Standings.this, ""+url, Toast.LENGTH_SHORT).show();
+                jsonParse();
+                jsonParse1();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Home.this, "Something went Wrong!!!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+
+
+
+
     }
     private  void jsonParse(){
-        String URL = "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/next/1?timezone=Europe%2FLondon";
+        String URL = url;//"https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/next/1?timezone=Europe%2FLondon";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -147,7 +214,7 @@ public class Home extends AppCompatActivity {
 
                             JSONObject api = response.getJSONObject("api");
                             JSONArray jsonArray = api.getJSONArray("fixtures");
-                            Toast.makeText(Home.this, ""+jsonArray.length(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(Home.this, ""+jsonArray.length(), Toast.LENGTH_SHORT).show();
 
                             for(int i = 0;i< jsonArray.length();i++)
                             {
@@ -169,12 +236,12 @@ public class Home extends AppCompatActivity {
                                   //  t1n.append(hTname + "," + String.valueOf(id) + "," + String.valueOf(points) + "\n\n");
                                 ht1n.append(hTname);
 
-                                ht1s.append(goalH);
+                                //ht1s.append(goalH);
                                // ht2n.append(hTname);
                                 //ht2s.append(goalH);
                                 at1n.append(aTname);
                                 //at2n.append(aTname);
-                                at1s.append(goalA);
+                               // at1s.append(goalA);
                                 venN.append(venue_name);
                                 date_.append(mdate);
                                 //at2s.append(goalA);
@@ -184,6 +251,68 @@ public class Home extends AppCompatActivity {
 
                                 }
                          //   }
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String,String>();
+                params.put("x-rapidapi-host","api-football-v1.p.rapidapi.com");
+                params.put("x-rapidapi-key", "d654579843msh1a3b8cd3ad5bc1dp194125jsnaed6fbcaf160");
+                return params;
+            }
+        };
+        mQueue.add(request);
+    }
+
+    private  void jsonParse1(){
+        String URL ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/last/1?timezone=Europe%2FLondon";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+
+                            JSONObject api = response.getJSONObject("api");
+                            JSONArray jsonArray = api.getJSONArray("fixtures");
+
+                            for(int i = 0;i< jsonArray.length();i++)
+                            {
+
+                                JSONObject fixtures = jsonArray.getJSONObject(i);
+                                JSONObject hometeam = fixtures.getJSONObject("homeTeam");
+                                JSONObject awayteam = fixtures.getJSONObject("awayTeam");
+                                int goalH = fixtures.getInt("goalsHomeTeam");
+                                int goalA = fixtures.getInt("goalsAwayTeam");
+                                String hTname = hometeam.getString("team_name");
+                                String aTname = awayteam.getString("team_name");
+
+
+                                //  t1n.append(hTname + "," + String.valueOf(id) + "," + String.valueOf(points) + "\n\n");
+                                lghn.append(hTname);
+                                lgan.append(aTname);
+
+                                lghs.append(String.valueOf(goalH));
+                                lgas.append(String.valueOf(goalA));
+
+
+
+
+                            }
+                            //   }
 
 
 
