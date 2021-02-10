@@ -38,7 +38,7 @@ public class Home extends AppCompatActivity {
     private ImageView fans;
     private ImageView brigade;
     private ImageView predict;
-    private TextView profile,ht1n,at1n,lghn,lgan,lghs,lgas;
+    private TextView profile,ht1n,at1n,lghn,lgan,lghs,lgas,prev,next;
     private  TextView ven,venN,date,date_;
     private Button stand,show,hide;
     private RequestQueue mQueue;
@@ -47,7 +47,9 @@ public class Home extends AppCompatActivity {
     private String userID;
     String teamna;
     int points;
-    String url;
+    String url,url1;
+
+    String nameofuser;
 
 
     @Override
@@ -67,6 +69,9 @@ public class Home extends AppCompatActivity {
             lgan = findViewById(R.id.lgma);
             lghs = findViewById(R.id.lgmhs);
             lgas = findViewById(R.id.lgmas);
+
+      //      prev = findViewById(R.id.label);
+//            next = findViewById(R.id.label2);
 
 
             ven = findViewById(R.id.venue);
@@ -169,22 +174,28 @@ public class Home extends AppCompatActivity {
 
                 if(userProfile != null){
                     teamna = userProfile.team;
+                    nameofuser = userProfile.name;
 
                 }
+                profile.setText(nameofuser);
                 //works here Toast.makeText(Standings.this, ""+teamna, Toast.LENGTH_SHORT).show();
 
                 if(teamna.equals("Arsenal")){
                     url ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/next/1?timezone=Europe%2FLondon";
+                    url1 = "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/last/1?timezone=Europe%2FLondon";
                 }
                 else if(teamna.equals("Juventus")){
                     url ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/496/next/1?timezone=Europe%2FLondon";//496
+                    url1 = "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/496/last/1?timezone=Europe%2FLondon"; //496
                 }
                else if (teamna.equals("Real Madrid")){
                     url ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/541/next/1?timezone=Europe%2FLondon"; // 541
+                    url1 = "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/541/last/1?timezone=Europe%2FLondon";
                 }
 
 
                 //  also here Toast.makeText(Standings.this, ""+url, Toast.LENGTH_SHORT).show();
+
                 jsonParse();
                 jsonParse1();
 
@@ -279,7 +290,7 @@ public class Home extends AppCompatActivity {
     }
 
     private  void jsonParse1(){
-        String URL ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/last/1?timezone=Europe%2FLondon";
+        String URL =url1;//"https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/last/1?timezone=Europe%2FLondon";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null,
                 new Response.Listener<JSONObject>() {
                     @Override
