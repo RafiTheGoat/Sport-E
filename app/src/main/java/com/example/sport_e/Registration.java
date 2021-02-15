@@ -18,13 +18,22 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.example.sport_e.User;
-
-
 import org.w3c.dom.Text;
 
 import java.util.regex.Pattern;
 
 public class Registration extends AppCompatActivity {
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    //"(?=.*[0-9])" +         //at least 1 digit
+                    //"(?=.*[a-z])" +         //at least 1 lower case letter
+                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{4,}" +               //at least 4 characters
+                    "$");
+
     private FirebaseAuth mAuth;
 
     private Button Create_account;
@@ -153,12 +162,21 @@ public class Registration extends AppCompatActivity {
 
             return;
         }
+
+
+        /* if (!PASSWORD_PATTERN.matcher(password).matches()) {
+            pass.setError("Password too weak");
+            return;
+        }
+
+         */
         if(conpass.isEmpty()){
             confirmpass.setError("This field is required");
             confirmpass.requestFocus();
 
             return;
         }
+
 
         if(!conpass.equals(password)){
             confirmpass.setError("Passwords do not match!");

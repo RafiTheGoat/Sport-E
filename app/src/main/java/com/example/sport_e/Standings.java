@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.VoiceInteractor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -99,7 +100,7 @@ public class Standings extends AppCompatActivity {
     }
 
     private  void jsonParse(){
-         String URL =url;//= "https://api-football-v1.p.rapidapi.com/v2/leagueTable/524";
+         String URL =url;       //= "https://api-football-v1.p.rapidapi.com/v2/leagueTable/524";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null,
                 new Response.Listener<JSONObject>() {
@@ -119,7 +120,10 @@ public class Standings extends AppCompatActivity {
                                     int id = standings.getInt("rank");
                                     String Tname = standings.getString("teamName");
                                     points = standings.getInt("points");
-                                    mtext.append(Tname + "," + String.valueOf(id) + "," + String.valueOf(points) + "\n\n");
+
+                                     //   mtext.setTextColor(Color.GREEN);
+                                        mtext.append(k + 1 + "." + Tname + "   " + String.valueOf(id) + "   " + String.valueOf(points) + "\n\n");
+
 
 
                                 }
