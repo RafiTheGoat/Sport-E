@@ -52,6 +52,7 @@ public class Home extends AppCompatActivity {
     String nameofuser;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,8 +105,33 @@ public class Home extends AppCompatActivity {
             brigade.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent brigade_intent = new Intent(Home.this, Brigade.class);
-                    startActivity(brigade_intent);
+
+                    fUser = FirebaseAuth.getInstance().getCurrentUser();
+                    reference = FirebaseDatabase.getInstance().getReference("Users");
+                    userID = fUser.getUid();
+
+                    reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            User userProfile = snapshot.getValue(User.class);
+
+                            if(userProfile != null){
+                                teamna = userProfile.team;
+                                nameofuser = userProfile.name;
+                                Intent brigade_intent = new Intent(Home.this, Brigade.class);
+                                brigade_intent.putExtra("TEAM",teamna);
+                                brigade_intent.putExtra("NAME",nameofuser);
+                                startActivity(brigade_intent);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(Home.this, "Something went Wrong!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                 }
             });
 

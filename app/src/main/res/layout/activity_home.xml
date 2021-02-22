@@ -284,6 +284,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_bg"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="Show standings"
         android:textColor="@android:color/white"
@@ -296,9 +297,10 @@
 
     <Button
         android:id="@+id/home_show"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="122dp"
+        android:layout_height="45dp"
         android:background="@drawable/btn_bg"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="Show details"
         android:textColor="@android:color/white"
@@ -314,6 +316,7 @@
         android:layout_width="122dp"
         android:layout_height="45dp"
         android:background="@drawable/btn_bg"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="hide details"
         android:textColor="@android:color/white"

@@ -111,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(home);
                 }else{
                         user.sendEmailVerification();
-                        Toast.makeText(MainActivity.this, "check your email to verify your account", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Check Your Email to Verify Your Account", Toast.LENGTH_LONG).show();
                     }
                 }else{
-                    Toast.makeText(MainActivity.this, "Wrong username or password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Wrong Email or Password", Toast.LENGTH_SHORT).show();
 
                 }
 
