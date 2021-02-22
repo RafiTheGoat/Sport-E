@@ -89,6 +89,8 @@ public class Brigade extends AppCompatActivity {
                     String key = reference.push().getKey();
 
                     reference.child(key).setValue(hp);
+
+                    comment.setText("");
                 }
                 else
                 {

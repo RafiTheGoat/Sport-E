@@ -15,9 +15,11 @@
         <activity android:name=".Profile" />
         <activity android:name=".Fans" />
         <activity android:name=".Predict" />
-        <activity android:name=".Brigade" />
+        <activity android:name=".Brigade"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Home" />
-        <activity android:name=".Registration" />
+        <activity android:name=".Registration"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

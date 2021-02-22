@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2E0D0D"
+    android:background="#EE5F0E"
     tools:context=".Choose_Brigade">
-
 
 
     <TextView
@@ -59,7 +58,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
         android:text="Choose Your Brigade!"
-        android:textColor="#EE5F0E"
+        android:textColor="#2E0D0D"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +72,7 @@
         android:id="@+id/finalise_btn"
         android:layout_width="127dp"
         android:layout_height="49dp"
-        android:background="@drawable/btn_bg"
+        android:background="@drawable/btn_bgalt"
         android:fontFamily="@font/poppins_bold"
         android:text="Next"
         android:textColor="#FFFFFF"
@@ -87,8 +86,8 @@
         android:id="@+id/team_spinner"
         android:layout_width="245dp"
         android:layout_height="43dp"
-        android:gravity="center"
         android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
