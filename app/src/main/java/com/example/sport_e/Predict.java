@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class Predict extends AppCompatActivity {
 
     private ImageView pback;
@@ -30,8 +32,6 @@ public class Predict extends AppCompatActivity {
         home = findViewById(R.id.predict_hometeam_score);
         away = findViewById(R.id.predict_awayteam_score);
         place = findViewById(R.id.placeprediction_btn);
-
-
 
         hi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +73,6 @@ public class Predict extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Predict.this, "Prediction Is placed!!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Predict.this,Home.class);
-                startActivity(intent);
             }
         });
 
