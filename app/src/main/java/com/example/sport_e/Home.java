@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -91,9 +92,9 @@ public class Home extends AppCompatActivity {
 
             hide.setVisibility(View.GONE);
             ven.setVisibility(View.GONE);
-        venN.setVisibility(View.GONE);
-        date.setVisibility(View.GONE);
-        date_.setVisibility(View.GONE);
+            venN.setVisibility(View.GONE);
+            date.setVisibility(View.GONE);
+            date_.setVisibility(View.GONE);
             fans.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -206,18 +207,20 @@ public class Home extends AppCompatActivity {
                 profile.setText(nameofuser);
                 //works here Toast.makeText(Standings.this, ""+teamna, Toast.LENGTH_SHORT).show();
 
-                if(teamna.equals("Arsenal")){
+                if( teamna.equals("Arsenal")){
                     url ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/next/1?timezone=Europe%2FLondon";
                     url1 = "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/last/1?timezone=Europe%2FLondon";
                 }
-                else if(teamna.equals("Juventus")){
+                else if( teamna.equals("Juventus")){
                     url ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/496/next/1?timezone=Europe%2FLondon";//496
                     url1 = "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/496/last/1?timezone=Europe%2FLondon"; //496
                 }
-               else if (teamna.equals("Real Madrid")){
+               else if ( teamna.equals("Real Madrid" )){
                     url ="https://api-football-v1.p.rapidapi.com/v2/fixtures/team/541/next/1?timezone=Europe%2FLondon"; // 541
                     url1 = "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/541/last/1?timezone=Europe%2FLondon";
                 }
+
+
 
 
                 //  also here Toast.makeText(Standings.this, ""+url, Toast.LENGTH_SHORT).show();
@@ -240,9 +243,10 @@ public class Home extends AppCompatActivity {
 
 
 
+
     }
     private  void jsonParse(){
-        String URL = url;//"https://api-football-v1.p.rapidapi.com/v2/fixtures/team/42/next/1?timezone=Europe%2FLondon";
+        String URL = url;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -268,26 +272,23 @@ public class Home extends AppCompatActivity {
                                     String venue_name = fixtures.getString("venue");
 
 
-                                  //  int points = fixtures.getInt("points");
+
 
                                   //  t1n.append(hTname + "," + String.valueOf(id) + "," + String.valueOf(points) + "\n\n");
                                 ht1n.append(hTname);
-
-                                //ht1s.append(goalH);
-                               // ht2n.append(hTname);
-                                //ht2s.append(goalH);
                                 at1n.append(aTname);
-                                //at2n.append(aTname);
-                               // at1s.append(goalA);
                                 venN.append(venue_name);
                                 date_.append(mdate);
-                                //at2s.append(goalA);
-                                   // t2n.append(aTname+"\n\n\n\n");
-                                   // t2s.append(goalA+"\n\n\n\n");
+
+                                Intent intent = new Intent(getBaseContext(), Predict.class);
+                                intent.putExtra("HTNAME", hTname);
+                                intent.putExtra("ATNAME",aTname);
+                               // startActivity(intent);
+                               // SharedPreferences sharedPreferences = getSharedPreferences(SHARED)
 
 
                                 }
-                         //   }
+
 
 
 

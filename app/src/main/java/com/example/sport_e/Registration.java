@@ -110,6 +110,7 @@ public class Registration extends AppCompatActivity {
     }
 
     public void register(){
+         final int points = 0;
          final String name= fullname.getText().toString().trim();
         String usern= username.getText().toString().trim();
          final String email_id= email.getText().toString().trim();
@@ -198,7 +199,7 @@ public class Registration extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            User user = new User(name,email_id,team);
+                            User user = new User(name,email_id,team,points);
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

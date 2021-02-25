@@ -72,7 +72,7 @@
         android:id="@+id/finalise_btn"
         android:layout_width="127dp"
         android:layout_height="49dp"
-        android:background="@drawable/btn_bgalt"
+      android:background="@drawable/btn_bg"
         android:fontFamily="@font/poppins_bold"
         android:text="Next"
         android:textColor="#FFFFFF"
