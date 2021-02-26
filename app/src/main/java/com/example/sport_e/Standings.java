@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.VoiceInteractor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +38,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Standings extends AppCompatActivity {
-    private TextView mtext;
+    private TextView mtext,mtext2,mtext3;
     private RequestQueue mQueue;
     private FirebaseUser fUser;
     private DatabaseReference reference;
@@ -49,7 +52,13 @@ public class Standings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_standings);
+
+
+
+        getSupportActionBar().hide();
         mtext = findViewById(R.id.view);
+       // mtext2 = findViewById(R.id.view2);
+       // mtext3 = findViewById(R.id.view3);
         //  Button show = findViewById(R.id.show);
         mQueue = Volley.newRequestQueue(this);
 
@@ -117,12 +126,16 @@ public class Standings extends AppCompatActivity {
                                 JSONArray jsonArray1 = jsonArray.getJSONArray(i);
                                 for(int k=0;k<jsonArray1.length();k++) {
                                     JSONObject standings = jsonArray1.getJSONObject(k);
+                                    JSONObject all = standings.getJSONObject("all");
                                     int id = standings.getInt("rank");
                                     String Tname = standings.getString("teamName");
                                     points = standings.getInt("points");
+                                    int mplayed = all.getInt("matchsPlayed");
+                                    int won = all.getInt("win");
+                                    int lost = all.getInt("lose");
 
-                                     //   mtext.setTextColor(Color.GREEN);
-                                        mtext.append(k + 1 + "." + Tname + "   " + String.valueOf(id) + "   " + String.valueOf(points) + "\n\n");
+                                            mtext.append(""+k + 1 + ". " + Tname + "\n" + "Points: " + String.valueOf(points) + "   " + "GP: " + String.valueOf(mplayed) + "   " + "Won: " + String.valueOf(won) + "   " + "Lost: " + String.valueOf(lost) + "\n------------------------------------------------"+"\n\n\n");
+
 
 
 
@@ -159,6 +172,6 @@ public class Standings extends AppCompatActivity {
         mQueue.add(request);
     }
 
-    //just saying if the user has only one team as favourites you dont even need to call this function multiple times. You just need to call it once so you can code all you want inside that jsonparse function only and display everything.team oh yes goy it
+
 
 }

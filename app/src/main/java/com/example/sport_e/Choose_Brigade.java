@@ -43,6 +43,7 @@ public class Choose_Brigade extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose__brigade);
+        getSupportActionBar().hide();
 
         mAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();

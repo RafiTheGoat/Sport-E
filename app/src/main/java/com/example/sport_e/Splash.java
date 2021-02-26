@@ -20,6 +20,7 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        getSupportActionBar().hide();
 
         SharedPreferences preferences = getSharedPreferences("preferences", MODE_PRIVATE);
         final boolean firstStart = preferences.getBoolean("firstStart", true);

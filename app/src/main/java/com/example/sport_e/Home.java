@@ -3,9 +3,14 @@ package com.example.sport_e;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -41,7 +46,7 @@ public class Home extends AppCompatActivity {
     private ImageView predict;
     private TextView profile,ht1n,at1n,lghn,lgan,lghs,lgas,prev,next;
     private  TextView ven,venN,date,date_;
-    private Button stand,show,hide;
+    private Button stand,show,hide,stats;
     private RequestQueue mQueue;
     private FirebaseUser fUser;
     private DatabaseReference reference;
@@ -53,11 +58,52 @@ public class Home extends AppCompatActivity {
     String nameofuser;
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+
+            case R.id.stand:
+                //add the function to perform here
+                Intent stnd = new Intent(Home.this, Standings.class);
+                startActivity(stnd);
+
+                return(true);
+            case R.id.stat:
+                //add the function to perform here
+                Intent stats = new Intent(Home.this, stats.class);
+                startActivity(stats);
+                return(true);
+
+            case R.id.prof:
+                //add the function to perform here
+                Intent prof = new Intent(Home.this, Profile.class);
+                startActivity(prof);
+                return(true);
+        }
+        return(super.onOptionsItemSelected(item));
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -72,8 +118,6 @@ public class Home extends AppCompatActivity {
             lghs = findViewById(R.id.lgmhs);
             lgas = findViewById(R.id.lgmas);
 
-      //      prev = findViewById(R.id.label);
-//            next = findViewById(R.id.label2);
 
 
             ven = findViewById(R.id.venue);
@@ -86,8 +130,9 @@ public class Home extends AppCompatActivity {
             fans = (ImageView) findViewById(R.id.fans);
             brigade = (ImageView) findViewById(R.id.brigade);
             predict = (ImageView) findViewById(R.id.predict);
-            profile = (TextView) findViewById(R.id.home_username);
-            stand = (Button)findViewById(R.id.Home_show);
+          //  profile = (TextView) findViewById(R.id.home_username);
+            //stand = (Button)findViewById(R.id.Home_show);
+            //stats = findViewById(R.id.stats);
 
 
             hide.setVisibility(View.GONE);
@@ -102,6 +147,11 @@ public class Home extends AppCompatActivity {
                     startActivity(fans_intent);
                 }
             });
+
+
+
+
+
 
             brigade.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -144,20 +194,8 @@ public class Home extends AppCompatActivity {
                 }
             });
 
-            profile.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent profile_intent = new Intent(Home.this, Profile.class);
-                    startActivity(profile_intent);
-                }
-            });
-            stand.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent Stand = new Intent(Home.this, Standings.class);
-                    startActivity(Stand);
-                }
-            });
+
+
         jsonParse();
 
         show.setOnClickListener(new View.OnClickListener() {
@@ -204,7 +242,7 @@ public class Home extends AppCompatActivity {
                     nameofuser = userProfile.name;
 
                 }
-                profile.setText(nameofuser);
+
                 //works here Toast.makeText(Standings.this, ""+teamna, Toast.LENGTH_SHORT).show();
 
                 if( teamna.equals("Arsenal")){

@@ -33,6 +33,7 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        getSupportActionBar().hide();
 
         proback = (ImageView) findViewById(R.id.proback);
         logout = (Button) findViewById(R.id.logout);

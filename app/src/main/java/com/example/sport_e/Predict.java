@@ -63,6 +63,7 @@ public class Predict extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
      //   mDatabase = FirebaseDatabase.getInstance().getReference();
         setContentView(R.layout.activity_predict);
        // hi = findViewById(R.id.hsi); // removed since not taking score as of now

@@ -52,6 +52,7 @@ public class Fans extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fans);
+        getSupportActionBar().hide();
 
 
         yourscore = findViewById(R.id.yourscore);
@@ -159,6 +160,7 @@ public class Fans extends AppCompatActivity {
 
 
     private  void jsonParse1(final String fixture, final String Prediction){
+
         String URL ="https://api-football-v1.p.rapidapi.com/v2/fixtures/id/"+fixture+"?";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null,
                 new Response.Listener<JSONObject>() {
