@@ -118,7 +118,7 @@
         android:fontFamily="@font/bungee_inline"
         android:text="HOME TEAM"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.139"
@@ -133,7 +133,7 @@
         android:fontFamily="@font/bungee_inline"
         android:text="AWAY TEAM"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.884"
@@ -148,7 +148,7 @@
         android:fontFamily="@font/bungee_inline"
         android:text="vs"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,9 +158,9 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/predict_animation"
-        android:layout_width="407dp"
-        android:layout_height="237dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="403dp"
+        android:layout_height="248dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -189,7 +189,7 @@
             android:fontFamily="@font/bungee_inline"
             android:text="Home team"
             android:textColor="@android:color/white"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
 
         <RadioButton
@@ -200,7 +200,7 @@
             android:text="Away team"
 
             android:textColor="@android:color/white"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/drdbtn"
@@ -209,7 +209,7 @@
             android:fontFamily="@font/bungee_inline"
             android:text="Draw"
             android:textColor="@android:color/white"
-            android:textSize="14sp"/>
+            android:textSize="12sp" />
     </RadioGroup>
 
 

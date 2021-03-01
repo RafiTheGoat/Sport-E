@@ -46,7 +46,7 @@ public class Home extends AppCompatActivity {
     private ImageView predict;
     private TextView profile,ht1n,at1n,lghn,lgan,lghs,lgas,prev,next;
     private  TextView ven,venN,date,date_;
-    private Button stand,show,hide,stats;
+    private Button stand,show,hide,friends;
     private RequestQueue mQueue;
     private FirebaseUser fUser;
     private DatabaseReference reference;
@@ -97,15 +97,7 @@ public class Home extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
          mQueue = Volley.newRequestQueue(this);
             ht1n = findViewById(R.id.team1_home1);
@@ -130,9 +122,7 @@ public class Home extends AppCompatActivity {
             fans = (ImageView) findViewById(R.id.fans);
             brigade = (ImageView) findViewById(R.id.brigade);
             predict = (ImageView) findViewById(R.id.predict);
-          //  profile = (TextView) findViewById(R.id.home_username);
-            //stand = (Button)findViewById(R.id.Home_show);
-            //stats = findViewById(R.id.stats);
+            friends = findViewById(R.id.friends);
 
 
             hide.setVisibility(View.GONE);
@@ -151,6 +141,15 @@ public class Home extends AppCompatActivity {
 
 
 
+
+            friends.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent friends = new Intent(Home.this,SendRequest.class);
+                    startActivity(friends);
+
+                }
+            });
 
 
             brigade.setOnClickListener(new View.OnClickListener() {
@@ -173,7 +172,11 @@ public class Home extends AppCompatActivity {
                                 brigade_intent.putExtra("TEAM",teamna);
                                 brigade_intent.putExtra("NAME",nameofuser);
                                 startActivity(brigade_intent);
+
                             }
+                            getSupportActionBar().setTitle(nameofuser);
+
+
                         }
 
                         @Override

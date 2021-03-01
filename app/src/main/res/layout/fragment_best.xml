@@ -24,22 +24,22 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.076" />
+            app:layout_constraintVertical_bias="0.047" />
 
         <ScrollView
             android:id="@+id/scrollView2"
-            android:layout_width="411dp"
-            android:layout_height="560dp"
+            android:layout_width="370dp"
+            android:layout_height="532dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
 
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">>
+            app:layout_constraintVertical_bias="0.919">
 
             <TextView
                 android:id="@+id/best"
@@ -52,11 +52,11 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:fontFamily="@font/bungee_inline"
-                android:gravity="center"
 
                 android:textColor="@android:color/white"
                 android:textSize="15sp" />
         </ScrollView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

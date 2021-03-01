@@ -8,9 +8,12 @@
     <item
         android:id="@+id/stand" android:icon="@drawable/ic_tournament" app:showAsAction="always"   android:title="Standings"/>
     <item
-        android:id="@+id/stat" android:icon="@drawable/ic_bar_chart" app:showAsAction="always|withText" android:title="Stats"/>
+        android:id="@+id/stat" android:icon="@drawable/ic_bar_chart" app:showAsAction="always" android:title="Stats"/>
+
     <item
-        android:id="@+id/prof" android:icon="@android:drawable/ic_dialog_info" app:showAsAction="never" android:title="Profile">
+        android:id="@+id/prof" android:icon="@drawable/ic_businessman" app:showAsAction="always"   android:title="Profile"/>
+    <item
+        android:id="@+id/About" android:icon="@android:drawable/ic_dialog_info" app:showAsAction="never" android:title="About">
 
     </item>
 

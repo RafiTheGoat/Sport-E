@@ -40,7 +40,7 @@ import java.util.Map;
  * create an instance of this fragment.
  */
 public class best extends Fragment {
-    TextView league,player;
+    TextView league,player,assist;
     private RequestQueue mQueue;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -96,6 +96,7 @@ public class best extends Fragment {
         mQueue = Volley.newRequestQueue(getActivity());
         league = view.findViewById(R.id.league);
         player = view.findViewById(R.id.best);
+
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         //getting the favourite team
@@ -180,7 +181,7 @@ public class best extends Fragment {
 
                                 // player.append(k + 1 + ". " + Tname + "\n" + "Points: " + String.valueOf(points) + "   " + "GP: " + String.valueOf(mplayed) + "   " + "Won: " + String.valueOf(won) + "   " + "Lost: " + String.valueOf(lost) + "\n\n");
 
-                                player.append(i + 1 + ". " + plnameapi + "\n" + "Positon: " + position + "\n" + "Team: " + team + "\n" + "Position: " + position + "\n" +"Appearances: "+String.valueOf(appearances)+ "\n"+ "GOALS: "+ String.valueOf(goals)+ "\n" + "Assists: "+ String.valueOf(assists)+ "\n\n\n");
+                                player.append(i + 1 + ". " + plnameapi + "\n" + "Positon:    " + position + "\n" + "Team:    " + team + "\n" + "Position:    " + position + "\n" +"Appearances:    "+String.valueOf(appearances)+ "\n"+ "GOALS:    "+ String.valueOf(goals)+ "\n" + "Assists:    "+ String.valueOf(assists)+ "\n\n\n");
 
 
 
