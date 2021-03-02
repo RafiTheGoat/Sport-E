@@ -12,11 +12,23 @@
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:id="@+id/PendingName"
-            android:text="Name comes here"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="9dp"
+            android:fontFamily="@font/bungee_inline"
+            android:text="Name comes here"
+            android:textColor="#ffff"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 
@@ -33,14 +45,19 @@
             android:layout_height="wrap_content"
             android:text="Accept Request"
             android:layout_weight="1"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="@font/poppins_bold"
+
             android:id="@+id/AcceptButton" />
 
         <Button
+            android:id="@+id/RejectButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Reject Request"
             android:layout_weight="1"
-            android:id="@+id/RejectButton" />
+            android:background="@drawable/btn_bg"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Reject Request" />
     </LinearLayout>
 
 

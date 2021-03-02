@@ -11,17 +11,22 @@
         android:id="@+id/lead"
         android:layout_width="177dp"
         android:layout_height="31dp"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center"
         android:text="TextView"
+        android:textColor="#ffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintVertical_bias="0.114" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/leaderboardFriends"
         android:layout_width="411dp"
         android:layout_height="447dp"
+
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

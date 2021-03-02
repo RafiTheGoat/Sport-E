@@ -8,21 +8,6 @@
     tools:context=".Home">
 
     <TextView
-        android:id="@+id/venue2"
-        android:layout_width="91dp"
-        android:layout_height="33dp"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center"
-        android:text="Next Game:"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.196" />
-
-    <TextView
         android:id="@+id/lghm"
         android:layout_width="130dp"
         android:layout_height="31dp"
@@ -35,20 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.67" />
-
-    <TextView
-        android:id="@+id/team2_away1"
-        android:layout_width="130dp"
-        android:layout_height="31dp"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257" />
 
     <TextView
         android:id="@+id/lgma"
@@ -78,22 +49,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.667" />
 
-    <Button
-        android:id="@+id/home_show"
-        android:layout_width="122dp"
-        android:layout_height="45dp"
-        android:background="@drawable/btn_bg"
-        android:fontFamily="@font/poppins_bold"
-        android:gravity="center"
-        android:text="Show details"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373" />
-
     <TextView
         android:id="@+id/lgmas"
         android:layout_width="55dp"
@@ -107,35 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.667" />
-
-    <TextView
-        android:id="@+id/ven_name"
-        android:layout_width="98dp"
-        android:layout_height="43dp"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.415"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
-
-    <TextView
-        android:id="@+id/venue"
-        android:layout_width="77dp"
-        android:layout_height="33dp"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center"
-        android:text="Venue:"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
 
     <Button
         android:id="@+id/home_hide"
@@ -151,7 +77,139 @@
         app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintVertical_bias="0.227" />
+
+    <TextView
+        android:id="@+id/ven_name"
+        android:layout_width="98dp"
+        android:layout_height="43dp"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.415"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.312" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="77dp"
+        android:layout_height="33dp"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center"
+        android:text="Date:"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.383" />
+
+    <Button
+        android:id="@+id/home_show"
+        android:layout_width="122dp"
+        android:layout_height="45dp"
+        android:background="@drawable/btn_bg"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="Show details"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <TextView
+        android:id="@+id/team2_away1"
+        android:layout_width="137dp"
+        android:layout_height="33dp"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116" />
+
+    <TextView
+        android:id="@+id/team1_score3"
+        android:layout_width="55dp"
+        android:layout_height="28dp"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center"
+        android:text="VS"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.122" />
+
+    <TextView
+        android:id="@+id/date_"
+        android:layout_width="97dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.385" />
+
+    <TextView
+        android:id="@+id/team1_home1"
+        android:layout_width="138dp"
+        android:layout_height="32dp"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.117" />
+
+    <TextView
+        android:id="@+id/venue2"
+        android:layout_width="91dp"
+        android:layout_height="33dp"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center"
+        android:text="Next Game:"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055" />
+
+    <TextView
+        android:id="@+id/venue"
+        android:layout_width="77dp"
+        android:layout_height="33dp"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center"
+        android:text="Venue:"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.313" />
 
     <Button
         android:id="@+id/friends"
@@ -167,50 +225,7 @@
         app:layout_constraintHorizontal_bias="0.892"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373" />
-
-    <TextView
-        android:id="@+id/date_"
-        android:layout_width="97dp"
-        android:layout_height="39dp"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.42"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528" />
-
-    <TextView
-        android:id="@+id/team1_home1"
-        android:layout_width="130dp"
-        android:layout_height="31dp"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257" />
-
-    <TextView
-        android:id="@+id/team1_score3"
-        android:layout_width="55dp"
-        android:layout_height="28dp"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center"
-        android:text="VS"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261" />
+        app:layout_constraintVertical_bias="0.23" />
 
     <TextView
         android:id="@+id/team1_score"
@@ -240,21 +255,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.612" />
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="77dp"
-        android:layout_height="33dp"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center"
-        android:text="Date:"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.524" />
 
     <ImageView
         android:id="@+id/navigationimage"

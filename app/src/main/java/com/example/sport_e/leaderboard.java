@@ -43,7 +43,7 @@ public class leaderboard extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String points = snapshot.child("points").getValue().toString();
-                yourScore.setText("YOUR SCORE ---> "+points);
+                yourScore.setText("YOUR SCORE:    "+points);
             }
 
             @Override
