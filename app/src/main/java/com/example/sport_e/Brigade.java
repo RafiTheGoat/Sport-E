@@ -21,10 +21,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Brigade extends AppCompatActivity {
 
@@ -68,6 +77,8 @@ public class Brigade extends AppCompatActivity {
             }
         });
 
+
+
         final DatabaseReference reference = mDatabase.child("Comments").child(team);
 
         post.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +95,7 @@ public class Brigade extends AppCompatActivity {
                 if(j==0)
                 {
                     HashMap<String, String> hp = new HashMap<>();
+
 
                     hp.put("Comment",comm);
                     hp.put("Name", nm);
@@ -130,6 +142,30 @@ public class Brigade extends AppCompatActivity {
                 for (DataSnapshot dsp : snapshot.getChildren()) {
                     String name  = dsp.child("Name").getValue().toString();
                     String comment   = dsp.child("Comment").getValue().toString();
+
+
+
+
+                  //  ArrayList<String> words = new ArrayList<String>();
+                    List<String> words = new ArrayList<String>();
+                    Scanner s = new Scanner(getResources().openRawResource(R.raw.base));
+
+                    while (s.hasNextLine()){
+                        words.add(s.next());
+                    }
+                    s.close();
+
+
+                  //  final List<String> words = Arrays.asList("base.txt");
+
+                    for (String word : words) {
+                        Pattern rx = Pattern.compile("\\b" + word + "\\b", Pattern.CASE_INSENSITIVE);
+                        comment = rx.matcher(comment).replaceAll(new String(new char[word.length()]).replace('\0', '*'));
+                    }
+
+
+
+
                     String full = name+"____"+comment;
                     jNames.add(full);
                     recyclerView.getAdapter().notifyItemInserted(jNames.size());
