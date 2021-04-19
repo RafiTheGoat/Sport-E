@@ -176,20 +176,11 @@ public class best extends Fragment {
                                 int goals = goalsassist.getInt("total");
                                 int assists = goalsassist.getInt("assists");
 
-
-
-
                                 // player.append(k + 1 + ". " + Tname + "\n" + "Points: " + String.valueOf(points) + "   " + "GP: " + String.valueOf(mplayed) + "   " + "Won: " + String.valueOf(won) + "   " + "Lost: " + String.valueOf(lost) + "\n\n");
 
                                 player.append(i + 1 + ". " + plnameapi + "\n" + "Positon:    " + position + "\n" + "Team:    " + team + "\n" + "Position:    " + position + "\n" +"Appearances:    "+String.valueOf(appearances)+ "\n"+ "GOALS:    "+ String.valueOf(goals)+ "\n" + "Assists:    "+ String.valueOf(assists)+ "\n\n\n");
 
-
-
                             }
-
-
-
-
 
                             // abc();
                         } catch (JSONException e) {

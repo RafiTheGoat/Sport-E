@@ -23,7 +23,7 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView createaccount;
+    private TextView createaccount,forgot;
     private Button login_btn;
     private EditText user;
     private EditText pwd;
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         login_btn = (Button) findViewById(R.id.login_btn);
         user = (EditText) findViewById(R.id.edit_email);
         pwd = (EditText) findViewById(R.id.edit_password);
+        forgot =(TextView) findViewById(R.id.forgot_pass);
         mAuth =FirebaseAuth.getInstance();
 
         createaccount.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent forgot = new Intent(MainActivity.this, forgot.class);
+                startActivity(forgot);
+            }
+        });
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

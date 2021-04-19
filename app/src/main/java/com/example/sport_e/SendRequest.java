@@ -30,6 +30,7 @@ public class SendRequest extends AppCompatActivity {
     EditText SearchResult;
     Button SearchButton,leader;
     DatabaseReference mDatabase;
+
     long f;
     String name;
     List<String> jNames = new ArrayList<>();
@@ -59,6 +60,7 @@ public class SendRequest extends AppCompatActivity {
         SearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //checkfriend();
                 final String email = SearchResult.getText().toString();
 
                 if(email.length()==0)
@@ -67,6 +69,7 @@ public class SendRequest extends AppCompatActivity {
                 }
                 else
                 {
+
                     f = 0;
                     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     final DatabaseReference ref = mDatabase.child("Users");
@@ -115,6 +118,29 @@ public class SendRequest extends AppCompatActivity {
         });
 
     }
+
+
+
+
+   /* private void checkfriend() {
+        final String email1 = SearchResult.getText().toString();
+        if(email1.equals("fernandodivyan@gmail.com") ||email1.equals("jaketyson.222@gmail.com")){
+            Toast.makeText(this, "Already friends with this user", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+    }
+
+    */
+
+
+
+
 
     private void initRecyclerView() {
         layoutManager = new LinearLayoutManager(this);
@@ -171,4 +197,5 @@ public class SendRequest extends AppCompatActivity {
         });
 
     }
+
 }

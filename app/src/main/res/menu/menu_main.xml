@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
 
-    <item android:name="colorPrimary">@android:color/transparent</item>
 
     <item
         android:id="@+id/stand" android:icon="@drawable/ic_tournament" app:showAsAction="always"   android:title="Standings"/>
@@ -11,9 +10,7 @@
         android:id="@+id/stat" android:icon="@drawable/ic_bar_chart" app:showAsAction="always" android:title="Stats"/>
 
     <item
-        android:id="@+id/prof" android:icon="@drawable/ic_businessman" app:showAsAction="always"   android:title="Profile"/>
-    <item
-        android:id="@+id/About" android:icon="@android:drawable/ic_dialog_info" app:showAsAction="never" android:title="About">
+        android:id="@+id/prof" android:icon="@drawable/ic_businessman" app:showAsAction="always"   android:title="Profile">
 
     </item>
 
