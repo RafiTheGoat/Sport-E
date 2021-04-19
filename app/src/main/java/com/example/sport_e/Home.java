@@ -46,7 +46,7 @@ public class Home extends AppCompatActivity {
     private ImageView predict;
     private TextView profile,ht1n,at1n,lghn,lgan,lghs,lgas,prev,next;
     private  TextView ven,venN,date,date_;
-    private Button stand,show,hide,friends;
+    private Button stand,show,hide,friends, go_quiz, go_quiz2;
     private RequestQueue mQueue;
     private FirebaseUser fUser;
     private DatabaseReference reference;
@@ -123,7 +123,8 @@ public class Home extends AppCompatActivity {
             brigade = (ImageView) findViewById(R.id.brigade);
             predict = (ImageView) findViewById(R.id.predict);
             friends = findViewById(R.id.friends);
-
+            go_quiz = findViewById(R.id.go_quiz);
+            go_quiz2 = findViewById(R.id.go_quiz2);
 
             hide.setVisibility(View.GONE);
             ven.setVisibility(View.GONE);
@@ -139,7 +140,21 @@ public class Home extends AppCompatActivity {
             });
 
 
+            go_quiz.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent goquiz = new Intent(Home.this,QuizSend.class);
+                    startActivity(goquiz);
+                }
+            });
 
+            go_quiz2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent goquiz2 = new Intent(Home.this,QuizReceive.class);
+                    startActivity(goquiz2);
+                }
+            });
 
 
             friends.setOnClickListener(new View.OnClickListener() {
